@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Transltion of English to Mauritian Creole";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                This is an application to translate from English to Mauritian Creole
+            </p>
+        </div>
+    </section>
+}
+<h3>Enter English Word</h3>
+@using System.Web.UI.WebControls
+@model POC_Translation.Models.LanguageModel
+@using (Html.BeginForm())
+{
+    <table id="tblTranslate">
+        <tr id="English" title="Enter English Word">
+            <td>
+                @Html.LabelFor(x => x.English, "Enter English Text")
+                @Html.TextAreaFor(x => x.English)
+            </td>
+        </tr>
+
+        <tr id="divCreole" title="Creole Word">
+            <td>
+                @Html.LabelFor(x => x.Creole, "Creole Text")
+                @Html.TextAreaFor(x => x.Creole)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Translate", "Translate", "Language")
+            </td>
+        </tr>
+    </table>
+}
